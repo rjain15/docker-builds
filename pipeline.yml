@@ -14,7 +14,7 @@ jobs:
       inputs:
       - name: resource-docker-build-repo
       run:
-        path: tasks/build.sh
+        path: resource-docker-build-repo/tasks/build.sh
         args: [
         "((REPO))",
         "((TOKEN))"
