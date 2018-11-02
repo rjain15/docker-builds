@@ -1,0 +1,22 @@
+platform:       linux
+image_resource:
+  type:         docker-image
+  source:
+    repository: byrnedo/alpine-curl
+    tag: 'latest'
+
+params:
+  REPO:
+  TOKEN:
+
+inputs:
+  - name:       build-image
+
+
+run:
+  dir:          docker-builds
+  path:         ci/tasks/deploy.sh
+  args: [
+    -r, REPO,
+    -t, TOKEN
+  ]
