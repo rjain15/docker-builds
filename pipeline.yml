@@ -1,6 +1,6 @@
 ---
 jobs:
-- name: docker-build
+- name: alpine-bash-curl
   public: true
   serial: true
   plan:
@@ -16,8 +16,8 @@ jobs:
       run:
         path: builds-repo/tasks/build.sh
         args: [
-        ((REPO)),
-        ((TOKEN))
+        ((alpine-bash-curl-repo)),
+        ((alpine-bash-curl-token))
         ]
 
 resources:
