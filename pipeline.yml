@@ -19,6 +19,63 @@ jobs:
         ((alpine-bash-curl-repo)),
         ((alpine-bash-curl-token))
         ]
+- name: golang-dep
+  public: true
+  serial: true
+  plan:
+  - get: builds-repo
+  - task: curl
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: flygare/alpine-bash-curl}
+      inputs:
+      - name: builds-repo
+      run:
+        path: builds-repo/tasks/build.sh
+        args: [
+        ((golang-dep-repo)),
+        ((golang-dep-token))
+        ]
+- name: jessie-jq-cf
+  public: true
+  serial: true
+  plan:
+  - get: builds-repo
+  - task: curl
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: flygare/alpine-bash-curl}
+      inputs:
+      - name: builds-repo
+      run:
+        path: builds-repo/tasks/build.sh
+        args: [
+        ((jessie-jq-cf-repo)),
+        ((jessie-jq-cf-token))
+        ]
+- name: node-alpine-gcloud-yarn
+  public: true
+  serial: true
+  plan:
+  - get: builds-repo
+  - task: curl
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: flygare/alpine-bash-curl}
+      inputs:
+      - name: builds-repo
+      run:
+        path: builds-repo/tasks/build.sh
+        args: [
+        ((node-alpine-gcloud-yarn-repo)),
+        ((node-alpine-gcloud-yarn-token))
+        ]
 
 resources:
 - name: builds-repo
