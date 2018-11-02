@@ -10,7 +10,7 @@ jobs:
       platform: linux
       image_resource:
         type: docker-image
-        source: {repository: byrnedo/alpine-curl}
+        source: {repository: flygare/alpine-bash-curl}
       inputs:
       - name: resource-docker-build-repo
       run:
