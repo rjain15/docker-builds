@@ -4,7 +4,7 @@ jobs:
   public: true
   serial: true
   plan:
-  - get: resource-docker-build-repo
+  - get: builds-repo
   - task: curl
     config:
       platform: linux
@@ -12,16 +12,16 @@ jobs:
         type: docker-image
         source: {repository: flygare/alpine-bash-curl}
       inputs:
-      - name: resource-docker-build-repo
+      - name: builds-repo
       run:
-        path: resource-docker-build-repo/tasks/build.sh
+        path: builds-repo/tasks/build.sh
         args: [
         ((REPO)),
         ((TOKEN))
         ]
 
 resources:
-- name: resource-docker-build-repo
+- name: builds-repo
   type: git
   source:
     uri: https://www.github.com/rjain15/docker-builds.git
