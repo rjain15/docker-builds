@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
-$REPO = $1
-$TOKEN = $2
+REPO=$1
+TOKEN=$2
 
 echo "Reps" ... $REPO
 echo "Token " .. $TOKEN
