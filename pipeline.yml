@@ -76,6 +76,25 @@ jobs:
         ((node-alpine-gcloud-yarn-repo)),
         ((node-alpine-gcloud-yarn-token))
         ]
+- name: certbot-kubectl
+  public: true
+  serial: true
+  plan:
+  - get: builds-repo
+  - task: curl
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: flygare/alpine-bash-curl}
+      inputs:
+      - name: builds-repo
+      run:
+        path: builds-repo/tasks/build.sh
+        args: [
+        ((certbot-kubectl-repo)),
+        ((certbot-kubectl-token))
+        ]
 
 resources:
 - name: builds-repo
